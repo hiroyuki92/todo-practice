@@ -4,11 +4,32 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
+
 @section('content')
+<div class="todo__alert">
+@if(session('success'))
+    <div class="alert alert-success">
+    {{ session('success')}}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    </div>
+</div>
+
+@endif
+
     <div class="todo__content">
-        <form class="create-form">
+        <form class="create-form" action="/todos" method="post">
+            @csrf
             <div class="create-form__item">
-                <input class="create-form__item-input type="text" name="content">
+                <input class="create-form__item-input type="text" name="content" value="{{ old('content') }}" />
             </div>
             <div class="create-form__button">
                 <button class="create-form__button-submit" type="submit">作成</button>
@@ -20,11 +41,13 @@
                 <tr class="todo-table__row">
                     <th class="todo-table__header">Todo</th>
                 </tr>
+
+                @foreach($todos as $todo)
                 <tr class="todo-table__row">
                     <td class="todo-table__item">
                         <form class="update-form">
                             <div class="update-form__item">
-                                <input type="text" class="update-form__item-input" name="content">
+                                <p class="update-form__item-input">"{{ $todo['content'] }}"</p>
                             </div>
                             <div class="update-form__button">
                                 <button class="update-form__button-submit" type="submit">更新</button>
@@ -39,6 +62,7 @@
                         </form>
                     </td>
                 </tr>
+                @endforeach
             </table>
         </div>
     </div>

@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [TodoController::class, 'index']);
+Route::post('/todos', [TodoController::class, 'store']);

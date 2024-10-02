@@ -1,22 +1,25 @@
-/* ヘッダー */
-.header {
-    background-color: #000;
-}
-
-.header__inner {
-    max-width: 1230px;
-    margin: 0 auto;
-    padding: 20px 40px;
-}
-
-.header__logo {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
 
 /* todoフォームのスタイル */
+
+
+.alert-success {
+    padding: 10px 30px;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.alert-danger {
+    padding: 10px 0;
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+.alert--danger ul {
+    margin: 0;
+}
+
 .todo__content {
     padding: 50px 15px;
     max-width: 1230px;
