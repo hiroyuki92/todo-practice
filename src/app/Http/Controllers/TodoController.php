@@ -28,4 +28,10 @@ class TodoController extends Controller
         return redirect('/')->with('success', 'Todoを更新しました');
     }
 
+    public function destroy(Request $request)
+    {
+        Todo::find($request->id)->delete();
+        return redirect('/')->with('success', 'Todoを削除しました');
+    }
+
 }
