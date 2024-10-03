@@ -6,33 +6,54 @@
 
 
 @section('content')
-<div class="todo__alert">
-@if(session('success'))
-    <div class="alert alert-success">
-    {{ session('success')}}
-    </div>
-@endif
+    <div class="todo__alert">
+    @if(session('success'))
+        <div class="alert alert-success">
+        {{ session('success')}}
+        </div>
+    @endif
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
     </div>
-</div>
-
-@endif
 
     <div class="todo__content">
+        <div class="section-title">
+            <h2>新規作成</h2>
+        </div>
         <form class="create-form" action="/todos" method="post">
             @csrf
             <div class="create-form__item">
                 <input class="create-form__item-input type="text" name="content" value="{{ old('content') }}" />
             </div>
+            <select class="create-form__select">
+                <option value="">カテゴリ</option>
+            </select>
             <div class="create-form__button">
                 <button class="create-form__button-submit" type="submit">作成</button>
+            </div>
+        </form>
+
+        <div class="section-title">
+            <h2>Todo検索</h2>
+        </div>
+        <form class="search-form" action="/todos" method="post">
+            @csrf
+            <div class="search-form__item">
+                <input class="search-form__item-input type="text" name="content" value="{{ old('content') }}" />
+            </div>
+            <select class="search-form__select">
+                <option value="">カテゴリ</option>
+            </select>
+            <div class="search-form__button">
+                <button class="create-form__button-submit" type="submit">検索</button>
             </div>
         </form>
 

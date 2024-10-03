@@ -21,12 +21,18 @@
 }
 
 .todo__content {
-    padding: 50px 15px;
+    padding: 30px 15px;
     max-width: 1230px;
     margin: 0 auto;
 }
 
-.create-form {
+.section-title {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.create-form,
+.search-form {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -35,22 +41,35 @@
     text-align: center;
 }
 
-.create-form__item {
+.create-form__item,
+.search-form__item {
     display: flex;
-    width: 80%;
+    width: 70%;
 }
 
-.create-form__item-input {
+.create-form__item-input,
+.search-form__item-input {
     margin-right: 10px;
     padding: 10px;
-    width: 90%;
+    width: 100%;
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 3px;
 }
 
-.create-form__button {
-    text-align: center;
+.create-form__select,
+.search-form__select {
+    margin-right: 80px;
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+.create-form__button,
+.search-form__button {
     width: 20%;
 }
 
