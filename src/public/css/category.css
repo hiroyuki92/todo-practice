@@ -1,3 +1,21 @@
+.alert-success {
+    padding: 10px 30px;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.alert-danger {
+    padding: 10px 0;
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+.alert--danger ul {
+    margin: 0;
+}
+
 .category__content {
     padding: 30px 15px;
     max-width: 1230px;

@@ -5,6 +5,25 @@
 @endsection
 
 @section('content')
+
+<div class="todo__alert">
+    @if(session('message'))
+        <div class="alert alert-success">
+        {{ session('message')}}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
+</div>
+
 <div class="category__content">
     <form class="create-form" action="/categories" method="post">
         @csrf
@@ -25,7 +44,9 @@
             @foreach($categories as $category)
             <tr class="category-table__row">
                 <td class="category-table__item">
-                    <form class="update-form">
+                    <form class="update-form" action="/categories/update" method="POST">
+                        @csrf
+                        @method('PATCH')
                         <div class="update-form__item-input">
                             <input class="update-form__item-input" type="name" name="name" value="{{ $category['name'] }}">
                             <input type="hidden" name="id" value="{{ $category['id'] }}">
