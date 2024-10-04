@@ -104,8 +104,14 @@
 
 .todo-table__header {
     padding: 10px;
+    width: 20%;
+    text-align: left;
+    font-weight: bold;
 }
 
+.todo-table__header-span {
+    margin-right: 40%;
+}
 .update-form {
     display: flex;
     align-items: center;
@@ -113,10 +119,9 @@
 }
 
 .update-form__item {
-    width: 80%;
+    width: 40%;
     padding: 10px;
     text-align: left;
-    height: 50px;
     line-height: 50%;
 }
 
@@ -125,6 +130,11 @@
     height: 90%;
     outline: none;
     border: none;
+}
+
+.update-form__item-p {
+    text-align: left;
+    font-size: 13px;
 }
 
 .update-form__button {
